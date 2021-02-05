@@ -1,6 +1,6 @@
 ﻿namespace Eruru.MySqlHelper {
 
-	static class MySqlHelperAPI {
+	public static class MySqlHelperApi {
 
 		public static bool IsNullOrWhiteSpace (string text) {
 			if (text is null) {

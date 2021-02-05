@@ -14,8 +14,8 @@ namespace Eruru.MySqlHelper {
 
 		}
 		public MySqlHelper (string connectionString) {
-			if (MySqlHelperAPI.IsNullOrWhiteSpace (connectionString)) {
-				throw new ArgumentException ($"“{nameof (connectionString)}”不能为 Null 或空白", nameof (connectionString));
+			if (connectionString is null) {
+				throw new ArgumentNullException (nameof (connectionString));
 			}
 			Open (connectionString);
 		}
@@ -28,8 +28,8 @@ namespace Eruru.MySqlHelper {
 			Connection.Open ();
 		}
 		public void Connect (string connectionString) {
-			if (MySqlHelperAPI.IsNullOrWhiteSpace (connectionString)) {
-				throw new ArgumentException ($"“{nameof (connectionString)}”不能为 Null 或空白", nameof (connectionString));
+			if (connectionString is null) {
+				throw new ArgumentNullException (nameof (connectionString));
 			}
 			Open (connectionString);
 		}
@@ -41,8 +41,8 @@ namespace Eruru.MySqlHelper {
 		}
 
 		void Open (string connectionString) {
-			if (MySqlHelperAPI.IsNullOrWhiteSpace (connectionString)) {
-				throw new ArgumentException ($"“{nameof (connectionString)}”不能为 Null 或空白", nameof (connectionString));
+			if (connectionString is null) {
+				throw new ArgumentNullException (nameof (connectionString));
 			}
 			Dispose ();
 			Connection.ConnectionString = connectionString;
@@ -50,8 +50,8 @@ namespace Eruru.MySqlHelper {
 		}
 
 		public int ExecuteNonQuery (string commandText) {
-			if (MySqlHelperAPI.IsNullOrWhiteSpace (commandText)) {
-				throw new ArgumentException ($"“{nameof (commandText)}”不能为 Null 或空白", nameof (commandText));
+			if (commandText is null) {
+				throw new ArgumentNullException (nameof (commandText));
 			}
 			lock (Lock) {
 				using (MySqlCommand command = new MySqlCommand (commandText, Connection)) {
@@ -61,8 +61,8 @@ namespace Eruru.MySqlHelper {
 		}
 
 		public void ExecuteReader (string commandText, Action<MySqlDataReader> action) {
-			if (MySqlHelperAPI.IsNullOrWhiteSpace (commandText)) {
-				throw new ArgumentException ($"“{nameof (commandText)}”不能为 Null 或空白", nameof (commandText));
+			if (commandText is null) {
+				throw new ArgumentNullException (nameof (commandText));
 			}
 			if (action is null) {
 				throw new ArgumentNullException (nameof (action));
@@ -77,8 +77,8 @@ namespace Eruru.MySqlHelper {
 		}
 
 		public object ExecuteScalar (string commandText) {
-			if (MySqlHelperAPI.IsNullOrWhiteSpace (commandText)) {
-				throw new ArgumentException ($"“{nameof (commandText)}”不能为 Null 或空白", nameof (commandText));
+			if (commandText is null) {
+				throw new ArgumentNullException (nameof (commandText));
 			}
 			lock (Lock) {
 				using (MySqlCommand command = new MySqlCommand (commandText, Connection)) {
@@ -88,8 +88,8 @@ namespace Eruru.MySqlHelper {
 		}
 
 		public int Fill (string commandText, DataSet dataSet) {
-			if (MySqlHelperAPI.IsNullOrWhiteSpace (commandText)) {
-				throw new ArgumentException ($"“{nameof (commandText)}”不能为 Null 或空白", nameof (commandText));
+			if (commandText is null) {
+				throw new ArgumentNullException (nameof (commandText));
 			}
 			if (dataSet is null) {
 				throw new ArgumentNullException (nameof (dataSet));
@@ -102,8 +102,8 @@ namespace Eruru.MySqlHelper {
 		}
 
 		public DataTable Fill (string commandText, DataTable dataTable, SchemaType schemaType) {
-			if (MySqlHelperAPI.IsNullOrWhiteSpace (commandText)) {
-				throw new ArgumentException ($"“{nameof (commandText)}”不能为 Null 或空白", nameof (commandText));
+			if (commandText is null) {
+				throw new ArgumentNullException (nameof (commandText));
 			}
 			if (dataTable is null) {
 				throw new ArgumentNullException (nameof (dataTable));

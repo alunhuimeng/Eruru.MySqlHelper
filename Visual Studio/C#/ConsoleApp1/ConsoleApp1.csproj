@@ -93,9 +93,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Eruru.MySqlHelper For .NET Framework 4.5.2\Eruru.MySqlHelper_For_.NET_Framework_4.5.2.csproj">
-      <Project>{8c228d05-7fef-4815-ad70-207deaa867a4}</Project>
-      <Name>Eruru.MySqlHelper_For_.NET_Framework_4.5.2</Name>
+    <ProjectReference Include="..\Eruru.MySqlHelper\Eruru.MySqlHelper.csproj">
+      <Project>{d6aebd8e-7eb1-4081-82cc-b88565d2cd06}</Project>
+      <Name>Eruru.MySqlHelper</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
